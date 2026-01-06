@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Open It ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#fbc2eb,#a6c1ee);
+  font-family: 'Segoe UI', sans-serif;
+  overflow:hidden;
+}
+
+.card{
+  background:white;
+  padding:35px;
+  border-radius:22px;
+  text-align:center;
+  max-width:420px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.25);
+  z-index:10;
+}
+
+button{
+  background:#ff4d6d;
+  border:none;
+  color:white;
+  padding:14px 30px;
+  font-size:18px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+.hidden{display:none;}
+
+h1{
+  color:#ff4d6d;
+}
+
+p{
+  font-size:16px;
+  line-height:1.7;
+}
+
+.confetti{
+  position:absolute;
+  width:10px;
+  height:10px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0);}
+  100%{transform:translateY(110vh) rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div id="first">
+    <h2>🎁 Open It 🎁</h2>
+    <p>For someone very special 💕</p>
+    <button onclick="openGift()">Open ❤️</button>
+  </div>
+
+  <div id="second" class="hidden">
+    <h1>Happy Birthday Khaadija 💖</h1>
+
+    <p>
+      Meri pyari si <b>Chulbul</b> 🌸<br><br>
+
+      Tum sirf meri begum nahi,<br>
+      tum meri aadat ho, meri dua ho 🤍<br><br>
+
+      You are my calm in chaos,<br>
+      my favorite feeling, my forever ✨<br><br>
+
+      تمہاری مسکراہٹ میری دنیا روشن کر دیتی ہے 🌙<br>
+      اللہ تمہیں ہمیشہ سلامت اور خوش رکھے 🤲
+    </p>
+
+    <p style="margin-top:15px;">
+      Always yours ❤️<br>
+      — Tumhara
+    </p>
+
+    <!-- Romantic Song -->
+    <div style="margin-top:20px;">
+      <p><b>🎶 Play Our Song</b></p>
+      <iframe width="100%" height="200"
+      src="https://www.youtube.com/embed/3tFqZsJHq5k"
+      title="Haazir Hoon Main"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function openGift(){
+  document.getElementById("first").classList.add("hidden");
+  document.getElementById("second").classList.remove("hidden");
+  confetti();
+}
+
+function confetti(){
+  for(let i=0;i<120;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+</script>
+
+</body>
+</html>
